@@ -1,5 +1,6 @@
 # photobook
-
+**Full Stack Photobook App | Vue, GraphQL, AWS Amplify**
+From [Youtube Tutorial](https://www.youtube.com/watch?v=w0p7ywfHesw)
 
 ## Requirements:
 1. Node.js
