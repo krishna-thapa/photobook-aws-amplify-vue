@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+    class="min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-1"
   >
     <div class="max-w-md w-full space-y-8">
       <div>
@@ -96,6 +96,7 @@ export default {
           username: this.username,
           password: this.password,
         });
+        this.$router.push("/albums");
       } catch (error) {
         this.error = error;
       }

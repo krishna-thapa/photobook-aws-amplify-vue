@@ -32,7 +32,7 @@ import { mapGetters } from "vuex";
     methods: {
       async logout() {
         await this.$store.dispatch("auth/logout");
-        this.$router.pusj("/");
+        this.$router.push("/");
       },
     },
     computed: {
