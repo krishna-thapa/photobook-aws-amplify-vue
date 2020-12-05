@@ -38,13 +38,25 @@ From [Youtube Tutorial](https://www.youtube.com/watch?v=w0p7ywfHesw)
 
   Amplify.config(aws_exports)
   ```
-6. Add Auth 
+6. Add Auth using [AWS Cognito](https://aws.amazon.com/cognito/)
   - `amplify add auth`: Use AWS Cognito service
   - Use simple username for this project
   - `amplify status`: To see the resources status
   - `amplify push`: build all your local backend resources and provision it in the cloud
 7. Go through Authentication UI provided by AWS Amplify
   - https://docs.amplify.aws/ui/auth/authenticator/q/framework/vue#usage
+8. Add [GraphQl](https://aws.amazon.com/graphql/) and [S3 storage](https://aws.amazon.com/s3/)
+  - [Guide](https://docs.amplify.aws/lib/storage/getting-started/q/platform/js)
+  - Store all the uploaded pictures in S3 bucket
+  - There are two ways to add storage with Amplify - manual and automated. Both methods require the `auth` category with Amazon Cognito to also be enabled.
+  - `amplify add storage`: Creates a storage in S3 bucket using Cloudformation
+  - Make the content for Images, give the resource name and bucket name and make user only the Auth users can have access to perform CRUD operation on the storage
+  - `amplify status`: To see the new resources added 
+9. Add [AWS AppSync](https://aws.amazon.com/appsync/)
+  - [Guide](https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/js)
+  - AWS AppSync is a fully managed service that makes it easy to develop GraphQL APIs by handling the heavy lifting of securely connecting to data sources like AWS DynamoDB, Lambda, and more. 
+  - `amplify add api`: To create a GraphQL API, use the Amplify add command
+  - Select `GraphQL` as a service with Amazon Cognito User Pool for default authorization and in advance settings, select `IAM` for additional authorization. FInally choose Single object with fields for a schema template 
 
 ## Project setup
 ```
