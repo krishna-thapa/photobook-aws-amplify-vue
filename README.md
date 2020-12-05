@@ -37,6 +37,13 @@
 
   Amplify.config(aws_exports)
   ```
+6. Add Auth 
+  - `amplify add auth`: Use AWS Cognito service
+  - Use simple username for this project
+  - `amplify status`: To see the resources status
+  - `amplify push`: build all your local backend resources and provision it in the cloud
+7. Go through Authentication UI provided by AWS Amplify
+  - https://docs.amplify.aws/ui/auth/authenticator/q/framework/vue#usage
 
 ## Project setup
 ```
@@ -60,3 +67,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## Knows problems 
+- Fix 'TypeError: getProcessedPlugins is not a function' error after updating Tailwind to 2.0: [Solution](https://bubalubs.io/updating-tailwind-to-v2-0/)
+- Module not found: Error: Can't resolve '../aws-exports': [Solution](https://stackoverflow.com/questions/60154820/module-not-found-error-cant-resolve-aws-exports-react-native-expo-web)
