@@ -67,6 +67,7 @@ From [Youtube Tutorial](https://www.youtube.com/watch?v=w0p7ywfHesw)
   - Open the localhost with port: `20002`
   - It can be also done through AWS AppSync but it will make changes to Production data
   - You can see the query, mutation and subscription that are generated using schema file
+  - `amplify push`: To update the new aws services in aws amplify
 
 ## Project setup
 ```
