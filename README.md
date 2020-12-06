@@ -56,7 +56,17 @@ From [Youtube Tutorial](https://www.youtube.com/watch?v=w0p7ywfHesw)
   - [Guide](https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/js)
   - AWS AppSync is a fully managed service that makes it easy to develop GraphQL APIs by handling the heavy lifting of securely connecting to data sources like AWS DynamoDB, Lambda, and more. 
   - `amplify add api`: To create a GraphQL API, use the Amplify add command
-  - Select `GraphQL` as a service with Amazon Cognito User Pool for default authorization and in advance settings, select `IAM` for additional authorization. FInally choose Single object with fields for a schema template 
+  - Select `GraphQL` as a service with Amazon Cognito User Pool for default authorization and in advance settings, select `IAM` for additional authorization. FInally choose Single object with fields for a schema template
+10. Configure `schema.grpahql`
+  - Added model and auth to grpahql schema type, see more in [documentation](https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html) 
+  - See more details on `@auth`, `@model` and `@connection`
+11. Mocking GraphQL API with Playground
+  - Check the `amplify status`: Should have three resources: Storage, Api and Auth
+  - Run the project: `npm run serve` and sign to your account since mocking graphql requires validate auth
+  - Open second terminal and run: `amplify mock api`
+  - Open the localhost with port: `20002`
+  - It can be also done through AWS AppSync but it will make changes to Production data
+  - You can see the query, mutation and subscription that are generated using schema file
 
 ## Project setup
 ```

@@ -1,5 +1,49 @@
-type Todo @model {
-  id: ID!
+type Album
+  @model
+  @auth(rules: [{ allow: owner }])
+{
+  # ! means mandatory
+  id: ID!  
+  owner: ID!
+  ownerId: String!
   name: String!
-  description: String
+  createdAt: String
+  updatedAt: String
+  # @connection add relationship between different models
+  photos: [Photo] @connection(name: "AlbumPhotos", sortField: "createdAt")
+}
+
+type Photo
+  @model
+  @auth(
+    rules: [
+      { allow: owner },
+      # iam for authorization for lambda
+      { allow: private, provider: iam, operations: [ read, update ] }
+    ]
+  )
+{
+  id: ID!
+  createdAt: String
+  updatedAt: String
+  album: Album @connection(name: "AlbumPhotos", sortField: "createdAt")
+  fullsize: S3Object!
+  thumbnail: S3Object
+  contentType: String
+  gps: GPS
+  height: Int
+  width: Int
+  size: Int
+}
+
+type S3Object @aws_iam @aws_cognito_user_pools {
+  region: String!
+  bucket: String!
+  key: String!
+}
+
+type GPS {
+  latitude: String!
+  longitude: String!
+  altitude: Float!
 }
