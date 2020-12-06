@@ -3,18 +3,17 @@
 From [Youtube Tutorial](https://www.youtube.com/watch?v=w0p7ywfHesw)
 
 ## Requirements:
-1. Node.js
-2. Npm
-3. Git
-4. Vue (`npm install -g @vue/cli`)
-5. AWS Amplify (`npm install -g @aws-amplify/cli`)
+1. [Node.js](https://nodejs.org/en/) with version 11 or higher
+2. [Npm](https://www.npmjs.com/)
+3. [Git](https://git-scm.com/)
+4. [Vue 2.x](https://vuejs.org/) (`npm install -g @vue/cli`)
+5. [AWS Amplify](https://aws.amazon.com/amplify/) (`npm install -g @aws-amplify/cli`)
 
 ## Commands to build the project
 1. Create a project (`vue create photobook`)
-  - Vue 2.x
-  - Dependencies included: Router, Vuex, CSS Pre-processors
-  - Tailwind (`vue add tailwind`)
-  - Uid (`npm install uuid`)
+  - Dependencies included: Router, [Vuex](https://vuex.vuejs.org/), CSS Pre-processors
+  - [Tailwind](https://tailwindcss.com/) (`vue add tailwind`)
+  - [Uuid](https://www.npmjs.com/package/uuid) (`npm install uuidv4`)
   - VSCode plugin: Tailwind CSS IntelliSense
 2. Set up AWS Amplify 
   - `amplify configure`
@@ -57,7 +56,7 @@ From [Youtube Tutorial](https://www.youtube.com/watch?v=w0p7ywfHesw)
   - AWS AppSync is a fully managed service that makes it easy to develop GraphQL APIs by handling the heavy lifting of securely connecting to data sources like AWS DynamoDB, Lambda, and more. 
   - `amplify add api`: To create a GraphQL API, use the Amplify add command
   - Select `GraphQL` as a service with Amazon Cognito User Pool for default authorization and in advance settings, select `IAM` for additional authorization. FInally choose Single object with fields for a schema template
-10. Configure `schema.grpahql`
+10. Configure `schema.graphql`
   - Added model and auth to grpahql schema type, see more in [documentation](https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html) 
   - See more details on `@auth`, `@model` and `@connection`
 11. Mocking GraphQL API with Playground
