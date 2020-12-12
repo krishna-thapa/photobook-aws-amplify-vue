@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="text-3xl">Create or Choose an Album</h3>
+    <h3 class="text-3xl">Create Or Choose An Album</h3>
     <div class="flex flex-col m-auto w-64">
       <input
         class="my-4 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
@@ -30,6 +30,7 @@
 import { mapGetters } from "vuex";
 export default {
   async mounted() {
+    console.log("Loading");
     this.$store.dispatch("albumInfo/getAlbumsData");
   },
   data: () => ({ albumName: "", error: "" }),
@@ -40,7 +41,7 @@ export default {
     async createAlbum() {
       this.error = "";
       if (!this.albumName) {
-        this.error = "Please enter a album name";
+        this.error = "Please enter an album name";
         return;
       }
       const newAlbum = {

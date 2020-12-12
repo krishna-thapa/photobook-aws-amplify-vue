@@ -2,14 +2,12 @@ type Album
   @model
   @auth(rules: [{ allow: owner }])
 {
-  # ! means mandatory
-  id: ID!  
+  id: ID!
   owner: ID!
   ownerId: String!
   name: String!
   createdAt: String
   updatedAt: String
-  # @connection add relationship between different models
   photos: [Photo] @connection(name: "AlbumPhotos", sortField: "createdAt")
 }
 
@@ -18,7 +16,6 @@ type Photo
   @auth(
     rules: [
       { allow: owner },
-      # iam for authorization for lambda
       { allow: private, provider: iam, operations: [ read, update ] }
     ]
   )

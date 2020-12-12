@@ -1,10 +1,10 @@
 import { API, graphqlOperation, Storage } from "aws-amplify";
-import { createAlbum as createAlbumMutation } from "@/graphql/mutations"
-import { getAlbum as getAlbumQuery } from "@/graphql/queries"
-import { listAlbums as listAlbumsQuery } from "@/graphql/queries"
+import { createAlbum as createAlbumMutation } from "@/graphql/mutations";
+import { getAlbum as getAlbumQuery } from "@/graphql/queries";
+import { listAlbums as listAlbumsQuery } from "@/graphql/queries";
 import { createPhoto as createPhotoMutation } from "@/graphql/mutations";
 import { uuid } from "uuidv4";
-import awsconfig from "@/aws-exports";
+import awsconfig from "../../../aws-exports";
 
 export const albumInfo = {
   namespaced: true,
@@ -20,7 +20,7 @@ export const albumInfo = {
         await API.graphql(graphqlOperation(createAlbumMutation, { input: newAlbum }))
         dispatch("getAlbumsData");
       } catch (error) {
-        console.error("createAlbum", error);
+        console.error("createalbum", error)
       }
     },
     async getAlbum(_, albumId) {
@@ -30,7 +30,7 @@ export const albumInfo = {
       const albumsData = await API.graphql(graphqlOperation(listAlbumsQuery));
       commit("setAlbums", albumsData.data.listAlbums.items);
     },
-    async createPhot(_, data) {
+    async createPhoto(_, data) {
       const {
         aws_user_files_s3_bucket_region: region,
         aws_user_files_s3_bucket: bucket
@@ -50,14 +50,16 @@ export const albumInfo = {
         }
       }
 
-      // S3 bucket storage add file to it
+      //s3 bucket storage add file to it
       try {
         await Storage.put(key, file, {
           level: "protected",
           contentType: mimeType,
           metadata: { albumId: id, photoId }
         })
-        await API.graphql(graphqlOperation(createPhotoMutation, { input: inputData }))
+        await API.graphql(
+          graphqlOperation(createPhotoMutation, { input: inputData })
+        )
         return Promise.resolve("success");
       } catch (error) {
         console.log("createPhoto error", error)
