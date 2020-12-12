@@ -17,27 +17,28 @@
             />
           </svg>
           <span class="mt-2 text-base leading-normal">Select a file</span>
-          <input
-            @change="onFileChange"
-            accept="image/*"
-            type="file"
-            class="hidden"
-          />
+          <input @change="onFileChange" accept="image/*" type="file" class="hidden" />
         </label>
       </form>
     </div>
     <div class="text-2xl mt-4">List Of Photos</div>
     <div class="flex flex-wrap p-10 justify-center m-auto w-full" v-if="photos">
-      <div
-        class="shadow-xl ml-4 mt-4 w-4/12"
-        v-for="(photo, idx) in photos"
-        :key="idx"
-      >
+      <div class="shadow-xl ml-4 mt-4 w-4/12" v-for="(photo, idx) in photos" :key="idx">
         <amplify-s3-image
           level="protected"
-          :img-key="photo.fullsize.key"
+          :img-key="photo.thumbnail ? photo.thumbnail.key : photo.fullsize.key"
           class="w-4/12"
         ></amplify-s3-image>
+        <div v-if="photo.createdAt && photo.gps">
+          <ul>
+            <li>Created At {{ photo.createdAt }}</li>
+            <li>
+              latitude
+              {{ photo.gps.latitude }}
+            </li>
+            <li>longitude At {{ photo.gps.longitude }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

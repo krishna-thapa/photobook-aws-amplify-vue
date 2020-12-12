@@ -77,7 +77,12 @@ The web app is build and hosted in AWS cloud using AWS Amplify that builds an ap
   - Go to sun folder `/amplify/backend/function/AmplifyPhotoProcessor/src`
   - Install axios: `npm install axios aws4 exif-reader`
   - To read GPS library: `npm install --arch=x64 --platform=linux sharp`
-12. [AWS Amplify](https://aws.amazon.com/amplify/features/#API) -> AWS Cognito Auth -> AppSync -> AWS DynamoDB -> S3 Storage -> AWS Lambda
+13. Add Lambda function in your storage:
+  - `amplify storage update`
+  - Select the same as usual with images and Auth users only and CRUD for an access
+  - Select yes to add a Lambda Trigger for S3 bucket
+  - And select the existing function from the project that we create in step 12
+14. [AWS Amplify](https://aws.amazon.com/amplify/features/#API) -> AWS Cognito Auth -> AppSync -> AWS DynamoDB -> S3 Storage -> AWS Lambda
   - AWS Amplify is a set of tools and services that can be used together or on their own, to help front-end web and mobile developers build scalable full stack applications, powered by AWS
   - Amplify Auth lets you quickly set up secure authentication flows with a fully-managed user directory. Control what users have access to in your mobile and web apps with Amplify Auth's built-in authorization capabilities. Click options together or use guided commands to configure email and social sign-up/sign-in, forgot password, and multi-factor auth workflows.
   - Make secure HTTP requests to GraphQL and REST endpoints to access, manipulate, and combine data from one or more data sources such Amazon DynamoDB, Amazon Aurora Serverless, and your custom data sources with AWS Lambda. 

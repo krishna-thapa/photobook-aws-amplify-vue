@@ -1,6 +1,6 @@
 /* Amplify Params - DO NOT EDIT
-	API_AMPLIFYPHOTOSAPI_GRAPHQLAPIENDPOINTOUTPUT
-	API_AMPLIFYPHOTOSAPI_GRAPHQLAPIIDOUTPUT
+    API_AMPLIFYPHOTOSAPI_GRAPHQLAPIENDPOINTOUTPUT
+    API_AMPLIFYPHOTOSAPI_GRAPHQLAPIIDOUTPUT
 Amplify Params - DO NOT EDIT */
 
 const AWS = require("aws-sdk");
@@ -10,6 +10,7 @@ const urlParse = require("url").URL;
 const sharp = require("sharp");
 const exifReader = require("exif-reader");
 
+// Get this environment variable from AWS Lambda function page
 const appSyncUrl = process.env.API_AMPLIFYPHOTOSAPI_GRAPHQLAPIENDPOINTOUTPUT;
 const appSyncHost = new urlParse(appSyncUrl).hostname.toString();
 
