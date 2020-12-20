@@ -1,8 +1,9 @@
 # photobook
 **Full Stack Photobook App | Vue, GraphQL, AWS Amplify**
 From [Youtube Tutorial](https://www.youtube.com/watch?v=w0p7ywfHesw)
+From [AWS Tutorial](https://amplify-workshop.go-aws.com/)
 
-The web app is build and hosted in AWS cloud using AWS Amplify that builds an app backend with auth. User first have to sign up and login to the app for the authentication that is provided by AWS Cognito service. When you successfully sign up the app, you will be sent the verification code in the email. Once the user is in home page, user can run albums and photos model schema using GraphQL service using AWS AppSync with AWS DynamoDB. User can upload and load the uploaded images using storage provided by S3 service from AWS.
+The web app is build and hosted in AWS cloud using AWS Amplify that builds an app backend with auth. User first have to sign up and login to the app for the authentication that is provided by AWS Cognito service. When you successfully sign up the app, you will be sent the verification code in the email. Once the user is in home page, user can run albums and photos model schema using GraphQL service using AWS AppSync with AWS DynamoDB. User can upload and load the uploaded images using storage provided by S3 service from AWS. User can also see the details for each uploaded photo using Serverless function provided by AWS Lambda function.
 
 ## Requirements:
 1. [Node.js](https://nodejs.org/en/) with version 11 or higher
